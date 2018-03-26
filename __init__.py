@@ -33,3 +33,14 @@ class TwitterAssistant:
 
     def sendTweet(reply, text):
         TwitterAssistant.rest_client.api.statuses.update.post(reply = reply, status = text)
+
+class ReplyBot:
+    def __init__(self, owner, searchTerms, response, threshold = 5, recipient_blacklist = (), exclusion = None, logFrequence = 50):
+        self.owner = owner
+        self.searchTerms = searchTerms
+        self.response = response
+        self.threshold = threshold
+        self.recipient_blacklist = recipient_blacklist
+        self.exclusion = None
+        self.logFrequence = logFrequence
+        self.tweets_sent = 0
